@@ -1,0 +1,49 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/NM-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/NM-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->     <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">// WAP to calculate the real root of non linear equation using Bisection Method.
+
+#include &ltiostream&gt
+#include &ltiomanip&gt
+#include &ltstdlib.h&gt
+#include &ltmath.h&gt
+using namespace std;
+
+#define f(x) (x * exp(x) - cos(x))
+#define e 0.0001
+
+float t(float val) // truncationg upto 4 decimal places
+{
+	return trunc(val * 10000) / 10000;
+}
+
+int main()
+{
+	float x1, x2, x0;
+	int N = 1;
+	do
+	{
+		cout &lt&lt "Enter x1 and x2: ";
+		cin &gt&gt x1 &gt&gt x2;
+		
+	} while ((f(x1) * f(x2)) &gt 0);
+
+	cout &lt&lt setw(4) &lt&lt "N" &lt&lt setw(12) &lt&lt "x1" &lt&lt setw(12) &lt&lt "x2" &lt&lt setw(20) &lt&lt "f(x1)" &lt&lt setw(20) &lt&lt "f(x2)" &lt&lt setw(20) &lt&lt "x0" &lt&lt setw(20) &lt&lt "f(x0)" &lt&lt endl;
+
+	while (fabs(x2 - x1) &gt e)
+	{
+		x0 = (x1 + x2) / 2;
+
+		cout &lt&lt setw(4) &lt&lt N &lt&lt setw(12) &lt&lt t(x1) &lt&lt setw(12) &lt&lt t(x2) &lt&lt setw(20) &lt&lt t(f(x1)) &lt&lt setw(20) &lt&lt t(f(x2)) &lt&lt setw(20) &lt&lt t(x0) &lt&lt setw(20) &lt&lt t(f(x0)) &lt&lt endl;
+
+		if ((f(x1) * f(x0)) &lt 0)
+		{
+			x2 = x0;
+		}
+		else
+		{
+			x1 = x0;
+		}
+
+		N++;
+	}
+
+	cout &lt&lt "The root is : " &lt&lt t(x0);
+}</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/NM-Website/js/prism.js"></script> </body> </html>
