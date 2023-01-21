@@ -1,0 +1,58 @@
+<!doctype html> <html lang="en"> <meta http-equiv="content-type" content="text/html;charset=utf-8" /> <head>  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/bootstrap.min.css" rel="stylesheet" /><link href="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/MyStyle.css" rel="stylesheet" /><link rel="stylesheet" href="https://arun457.github.io/Dependencies-Server/NM-Website/css/prism.css" type="text/css"><link rel="shortcut icon" href="https://arun457.github.io/Dependencies-Server/NM-Website/images/favicon.ico" type="image/x-icon"><title>Code</title> </head> <body> <div class="p-3"> <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation"> <a class="nav-link active" id="code-tab" data-toggle="tab" href="#code" role="tab" aria-controls="Outlines"aria-selected="true">Code</a> </li> <!--Here1-->     <!--Here2--> <li class="nav-item" role="presentation"> <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="false">Video</a> </li> </ul> <div class="tab-content" id="myTabContent"> <div class="tab-pane fade show active" id="code" role="tabpanel" aria-labelledby="code-tab"> <pre><code class="language-cpp">#include &ltiostream&gt
+#include &ltcmath&gt
+#define e 0.0001
+using namespace std;
+
+int main()
+{
+	system("CLS");
+	float x[100], y[100], c[100][100], eigenvalue = 0, neweigenvalue, error, sum;
+	int i, j, n;
+
+	cout &lt&lt "Enter the dimension of Square Matrix: ";
+	cin &gt&gt n;
+
+	cout &lt&lt "Enter the Matrix:" &lt&lt endl;
+	for (i = 1; i &lt= n; i++)
+	{
+		for (j = 1; j &lt= n; j++)
+			cin &gt&gt c[i][j];
+	}
+
+	cout &lt&lt "Enter the Initial Eigen Vector: " &lt&lt endl;
+	for (i = 1; i &lt= n; i++)
+		cin &gt&gt x[i];
+
+top:
+	for (i = 1; i &lt= n; i++)
+	{
+		sum = 0;
+		for (j = 1; j &lt= n; j++)
+		{
+			sum = sum + c[i][j] * x[j];
+		}
+		y[i] = sum;
+	}
+
+	neweigenvalue = fabs(y[1]);
+	for (i = 2; i &lt= n; i++)
+	{
+		if (fabs(y[i]) &gt neweigenvalue)
+			neweigenvalue = fabs(y[i]);
+	}
+
+	for (i = 1; i &lt= n; i++)
+		x[i] = y[i] / neweigenvalue;
+
+	error = fabs(eigenvalue - neweigenvalue);
+	eigenvalue = neweigenvalue;
+	if (error &gt e)
+		goto top;
+
+	cout &lt&lt "The Eigen Value is: " &lt&lt eigenvalue &lt&lt endl;
+	cout &lt&lt "The Eigen Vector is: " &lt&lt endl;
+
+	for (i = 1; i &lt= n; i++)
+		cout &lt&lt x[i] &lt&lt endl;
+	return 0;
+}</code></pre> </div> <!--Here1-->     <!--Here2--> <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab"> <h1>Coming Soon</h1> </div> </div> </div> <script src="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/jquery-3.5.1.slim.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/bootstrap.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/NM-Website/Bootstrap/popper.min.js"></script><script src="https://arun457.github.io/Dependencies-Server/NM-Website/js/prism.js"></script> </body> </html>
